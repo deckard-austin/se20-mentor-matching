@@ -1,30 +1,32 @@
 // TODO: Connect Airtable API with this to bring in startups dynamically
-// After taking in the name, pic, desciption, we can probably style with tailwind easily I think?
-// Learning the Airtable API, so using madeup dummy data
+// TODO: Add styling, startup logos, query params for each mentor/startup
 import React from 'react';
-import Header from './Header';
-import STARTUP_DATA from './StartupData';
 
-class ListOfStatups extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      startups: STARTUP_DATA,
-    };
-  }
-  render() {
-    const { startups } = this.state;
-    return (
-      <div>
-        {startups.map(({ id, ...otherProps }) => (
-          <div key={id} {...otherProps}>
-            Startup Name Here
-          </div>
-        ))}
+const ListOfStartUps = ({ name, description, location, mentorChoice }) => (
+  <div className='startup-list'>
+    <form action=''>
+      <div className='each-startup'>
+        <h1 className='startup-name'>{name}</h1>
+        <p className='startup-location'>{location} </p>
+        <h3 className='startup-description'>{description}</h3>
+        <label htmlFor=''>Yes</label>
+        <input
+          type='radio'
+          name='mentor-choice'
+          value='mentorChoice'
+          className='mentor-choice'
+        />
+        <label htmlFor=''>No</label>
+        <input
+          type='radio'
+          name='mentor-choice'
+          value='mentorChoice'
+          className='mentor-choice'
+        />
       </div>
-    );
-  }
-}
+    </form>
+    <button>Save Choices</button>
+  </div>
+);
 
-export default ListOfStatups;
+export default ListOfStartUps;
