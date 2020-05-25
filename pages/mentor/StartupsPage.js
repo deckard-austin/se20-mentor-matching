@@ -10,11 +10,16 @@ class StartupsPage extends React.Component {
     this.state = {
       startups: STARTUP_DATA,
       mentorChoice: '',
+      mentorChoices: [], // If using radio buttons, might need to store each selection in an array
     };
   }
 
   handleChange = (e) => {
     this.setState({ mentorChoice: e.target.value });
+  };
+
+  handleSubmit = (e) => {
+    e.preventDefault();
   };
 
   render() {
