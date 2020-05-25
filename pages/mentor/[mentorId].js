@@ -9,16 +9,33 @@ class StartupsPage extends React.Component {
 
     this.state = {
       startups: STARTUP_DATA,
-      mentorChoice: null,
+      mentorChoice: '',
     };
   }
+
+  handleChange = (e) => {
+    this.setState({ mentorChoice: e.target.value });
+  };
+
   render() {
     const { startups, mentorChoice } = this.state;
+    console.log({ mentorChoice });
     return (
       <div className='startups-page'>
-        {startups.map(({ id, ...otherProps }) => (
-          <StartupList key={id} {...otherProps} mentorChoice={mentorChoice} />
-        ))}
+        <form
+          action=''
+          onSubmit={async (e) => {
+            e.preventDefault();
+          }}>
+          {startups.map(({ id, handleChange, ...otherProps }) => (
+            <StartupList
+              key={id}
+              {...otherProps}
+              handleChange={this.handleChange}
+            />
+          ))}
+          <button type='submit'>Save Choices</button>
+        </form>
       </div>
     );
   }
