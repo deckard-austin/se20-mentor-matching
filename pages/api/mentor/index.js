@@ -1,6 +1,6 @@
 import React from 'react';
-import StartupList from '../../components/StartupList';
-import STARTUP_DATA from '../../components/StartupData';
+import StartupList from '../../../components/StartupList';
+import STARTUP_DATA from '../../../components/StartupData';
 
 // This page maps through each startup
 class StartupsPage extends React.Component {
